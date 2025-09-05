@@ -4,14 +4,14 @@
   <button (click)="addFriend()">Add friend</button>
 </div>
 <div class="favorite">
-  <p>My favourite person is: {{ favorite }}</p>
-  <button *ngIf="favorite" (click)="favorite = null">Remove favourite</button>
+  <p>My favourite people are: {{ favorite.join(', ') }}</p>
 </div>
 <div class="people">
   <app-people
     *ngFor="let person of people"
     [name]="person"
-    (favourite)="favorite = person"
-    (removeFavourite)="favorite = null"
+    (favourite)="addToFavorite($event)"
+    (removeFavourite)="removeFromFavorite($event)"
   ></app-people>
+  <p>Angular is black magic</p>
 </div>
